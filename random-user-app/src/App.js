@@ -1,6 +1,7 @@
 import "./App.css";
 import axios from "axios";
 import { useState, useEffect } from "react";
+import mail from "./assets/email.svg";
 
 function App() {
   const [ischange, setIschange] = useState(true);
@@ -18,9 +19,23 @@ function App() {
 
   return (
     <div className="App">
-      <h1>
-        {user?.name.first} {user?.name.last}
-      </h1>
+      <div className="container">
+        <div className="image">
+          <div>
+            <img src={user.picture.medium} alt="" />
+          </div>
+          <h1>
+            {user?.name.first} {user?.name.last}
+          </h1>
+          <div className="mail">
+            <div>
+              <img src={mail} width="40px" alt="" />
+            </div>
+            <p>{user.email}</p>
+          </div>
+        </div>
+      </div>
+
       <button onClick={() => setIschange(!ischange)}>change</button>
     </div>
   );
